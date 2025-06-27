@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROYECTO ARRAY</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <h1>FORMULARIO</h1>
+    
+    <section class="formulario">
+      <h2>Usuarios</h2>
+      <form id="formUsuario">
+        <label for="nombre">Nombre completo *</label>
+        <input type="text" id="nombre" name="nombre" required>
+      
+        <label for="Edad">Edad *</label>
+        <input type="number" min="0" max="100" id="edad" name="edad" required>
+
+        <label for="email">Correo electrónico *</label>
+        <input type="email" id="email" name="email" required>
+
+        <button type="submit" id="activarPrompt">Agregar usuario</button>
+      </form>
+      
+    </section>
+    <!-- Mostrar usuarios -->
+  <div id="usuarios"></div>
+  
+  <!-- Mostrar dato extra almacenado -->
+  <div id="datoExtra"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
