@@ -22,11 +22,12 @@ function mostrarUsuarios() {
   const ul = document.createElement('ul');
   usuarios.forEach(usuario => {
     const li = document.createElement('li');
-    li.innerHTML = `
-      <strong>ID:</strong> ${usuario.id} | 
-      <strong>Nombre:</strong> ${usuario.nombre} | 
-      <strong>Edad:</strong> ${usuario.edad} | 
-      <strong>Email:</strong> ${usuario.email}
+     li.innerHTML = `
+      <strong>ID:</strong> ${usuario.id} |
+      <strong>Nombre:</strong> ${usuario.nombre} |
+      <strong>Edad:</strong> ${usuario.edad} |
+      <strong>Email:</strong> ${usuario.email} |
+      <strong>Color Favorito:</strong> ${usuario.colorFavorito || 'No especificado'}
     `;
     ul.appendChild(li);
   });
@@ -42,18 +43,11 @@ document.getElementById('formUsuario').addEventListener('submit', function(e) {
   const email = document.getElementById('email').value.trim();
   const colorFavorito = document.getElementById('colorFavorito').value.trim();
   
-  // Validación básica
-  if (!nombre || isNaN(edad) || !email || !colorFavorito) {
-    alert('Por favor complete todos los campos correctamente');
-    return;
-  }
-  
-  // Guardar color favorito en localStorage (Requisito 4)
   localStorage.setItem('colorFavorito', colorFavorito);
-  
+ 
   // Agregar nuevo usuario
   const nuevoId = usuarios.length ? usuarios[usuarios.length - 1].id + 1 : 1;
-  const nuevoUsuario = { id: nuevoId, nombre, edad, email };
+  const nuevoUsuario = { id: nuevoId, nombre, edad, email, colorFavorito };
   usuarios.push(nuevoUsuario);
   
   // Guardar en localStorage y mostrar
@@ -61,7 +55,7 @@ document.getElementById('formUsuario').addEventListener('submit', function(e) {
   mostrarUsuarios();
   
   // Mostrar mensaje y limpiar formulario
-  alert('Usuario agregado con éxito!');
+  alert(`Hola ${nombre} se guardo tu usuario con éxito!`);
   this.reset();
 });
 
